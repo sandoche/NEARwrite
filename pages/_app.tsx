@@ -2,8 +2,12 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 
+import NearProvider from "@/modules/near-api-react/providers/NearProvider";
+
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+
+  const nearNetworkEnv = process.env.NEXT_PUBLIC_NEAR_NETWORK_ENV || "testnet";
 
   return (
     <>
@@ -23,7 +27,9 @@ export default function App(props: AppProps) {
           colorScheme: "light",
         }}
       >
-        <Component {...pageProps} />
+        <NearProvider networkId={nearNetworkEnv}>
+          <Component {...pageProps} />
+        </NearProvider>
       </MantineProvider>
     </>
   );
