@@ -6,6 +6,7 @@ import {
   near,
   LookupMap,
 } from "near-sdk-js";
+import assert from "./utilities/assert";
 
 @NearBindgen
 class UserNotes extends NearContract {
@@ -14,11 +15,17 @@ class UserNotes extends NearContract {
     this.n = new LookupMap("user_notes");
   }
 
+  deserialize() {
+    super.deserialize();
+    this.n = Object.assign(new LookupMap(), this.n);
+  }
+
   @call
-  addNote({ uri }) {
+  addNote({ ipfsHash }) {
+    assert(ipfsHash.length === 46, "Invalid ipfsHash");
     const accountId = near.signerAccountId();
     const notes = this.n.get(accountId);
-    this.n.set(accountId, [uri, ...notes]);
+    this.n.set(accountId, [ipfsHash, ...notes]);
   }
 
   @view
