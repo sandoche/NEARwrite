@@ -7,6 +7,7 @@
 ## Requirements
 
 - pnpm `npm install -g pnpm`
+- near-cli `npm install -g near-cli`
 
 ## Installation
 
