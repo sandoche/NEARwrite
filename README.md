@@ -32,4 +32,5 @@ pnpm run dev
 ```sh
 cd contract
 pnpm run build
+pnpm run deploy
 ```
