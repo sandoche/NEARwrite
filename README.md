@@ -9,11 +9,13 @@
 ## Installation
 
 ```sh
+cd app
 pnpm install
 ```
 
 ## Development
 
 ```sh
+cd app
 pnpm run dev
 ```
