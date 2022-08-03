@@ -5,12 +5,16 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
     "build": "near-sdk-js build src/index.js build/contract.wasm",
     "deploy": "near js dev-deploy build/contract.wasm --deposit 0.1"
   },
   "author": "Sandoche Adittane",
   "dependencies": {
     "near-sdk-js": "0.4.0-3"
+  },
+  "devDependencies": {
+    "ava": "^4.3.1",
+    "near-workspaces": "^3.1.0"
   }
 }
