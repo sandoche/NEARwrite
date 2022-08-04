@@ -8,7 +8,7 @@ const assert = (condition, message) => {
 
 @NearBindgen
 class UserNotes extends NearContract {
-  notes: any;
+  notes: { [key: string]: string[] };
 
   constructor() {
     super();
