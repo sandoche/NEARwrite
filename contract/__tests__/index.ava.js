@@ -31,12 +31,11 @@ test.afterEach(async (t) => {
 });
 
 test("Add a hash to the notes of alice", async (t) => {
-  const { accounts } = t.context;
-  const { contract, alice } = accounts;
+  const { contract, alice } = t.context.accounts;
   await alice.call(contract, "addNote", {
     ipfsHash: "Qmbx3aPb36KZwrPH1KPT94EsGkyHKVMxf9CaufwQYAkkvX",
   });
-  const notes = await alice.view(contract, "getAllNotes", {
+  const notes = await contract.view("getAllNotes", {
     accountId: alice.accountId,
   });
   t.deepEqual(notes, ["Qmbx3aPb36KZwrPH1KPT94EsGkyHKVMxf9CaufwQYAkkvX"]);
