@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "ava",
-    "build": "near-sdk-js build src/index.js build/contract.wasm",
+    "build": "near-sdk-js build src/index.ts build/contract.wasm",
     "deploy": "near js dev-deploy build/contract.wasm --deposit 0.1"
   },
   "author": "Sandoche Adittane",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "ava": "^4.3.1",
-    "near-workspaces": "^3.1.0"
+    "near-workspaces": "^3.1.0",
+    "typescript": "^4.7.4"
   }
 }
