@@ -23,8 +23,8 @@ class UserNotes extends NearContract {
   @call
   addNote({ ipfsHash }) {
     assert(ipfsHash.length === 46, "Invalid ipfsHash");
-    near.log(`Adding the ipfsHash ${ipfsHash} to ${accountId}`);
     const accountId = near.signerAccountId();
+    near.log(`Adding the ipfsHash ${ipfsHash} to ${accountId}`);
     const notes = this.n.get(accountId);
     this.n.set(accountId, [ipfsHash, ...notes]);
   }
