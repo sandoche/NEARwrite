@@ -6,7 +6,12 @@ import {
   near,
   LookupMap,
 } from "near-sdk-js";
-import assert from "./utilities/assert";
+
+const assert = (condition, message) => {
+  if (!condition) {
+    throw new Error(message);
+  }
+};
 
 @NearBindgen
 class UserNotes extends NearContract {
