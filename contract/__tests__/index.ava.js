@@ -30,13 +30,22 @@ test.afterEach(async (t) => {
   });
 });
 
-test("Add a hash to the notes of alice", async (t) => {
-  const { contract, alice } = t.context.accounts;
+test("Add a hash to the notes of alice and make sure only alice account has it", async (t) => {
+  const { contract, alice, bob } = t.context.accounts;
+
   await alice.call(contract, "addNote", {
     ipfsHash: "Qmbx3aPb36KZwrPH1KPT94EsGkyHKVMxf9CaufwQYAkkvX",
   });
-  const notes = await contract.view("getAllNotes", {
+
+  const notesAlice = await contract.view("getAllNotes", {
     accountId: alice.accountId,
   });
-  t.deepEqual(notes, ["Qmbx3aPb36KZwrPH1KPT94EsGkyHKVMxf9CaufwQYAkkvX"]);
+
+  t.deepEqual(notesAlice, ["Qmbx3aPb36KZwrPH1KPT94EsGkyHKVMxf9CaufwQYAkkvX"]);
+
+  const notesBob = await contract.view("getAllNotes", {
+    accountId: bob.accountId,
+  });
+
+  t.deepEqual(notesBob, []);
 });
