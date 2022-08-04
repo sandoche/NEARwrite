@@ -6,17 +6,16 @@
 
 ## Requirements
 
-- pnpm `npm install -g pnpm`
 - near-cli `npm install -g near-cli`
 
 ## Installation
 
 ```sh
 cd app
-pnpm install
+npm install
 
 cd ../contract
-pnpm install
+npm install
 ```
 
 ## Development
@@ -25,13 +24,13 @@ pnpm install
 
 ```sh
 cd app
-pnpm run dev
+npm run dev
 ```
 
 ### Smart contract
 
 ```sh
 cd contract
-pnpm run build
-pnpm run deploy
+npm run build
+npm run deploy
 ```
