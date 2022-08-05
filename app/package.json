@@ -21,7 +21,7 @@
     "@mantine/spotlight": "^5.0.0",
     "@uiw/react-markdown-editor": "^5.0.1",
     "@uiw/react-markdown-preview": "^4.0.23",
-    "ipfs-core": "^0.15.4",
+    "aleph-js": "^0.5.0",
     "near-api-js": "^0.45.1",
     "next": "12.2.3",
     "next-remove-imports": "^1.0.6",
