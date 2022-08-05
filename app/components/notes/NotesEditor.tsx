@@ -1,8 +1,5 @@
-import { Paper } from '@mantine/core';
-
-import { SimpleGrid } from '@mantine/core';
-
 import { useState } from 'react';
+import { Paper, SimpleGrid } from '@mantine/core';
 import dynamic from 'next/dynamic';
 import rehypeSanitize from 'rehype-sanitize';
 
