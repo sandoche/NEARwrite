@@ -1,5 +1,10 @@
 {
+  "common": {
+    "title": "NEARwrite | Your notes, encrypted, always available",
+    "description": "Your notes, encrypted, always available"
+  },
   "home": {
+    "title": "NEARwrite | Your notes, encrypted, always available",
     "headline_1": "Your notes,",
     "headline_2": "encrypted",
     "headline_3": ", always available",
