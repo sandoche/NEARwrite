@@ -1,8 +1,9 @@
 import { ActionIcon, createStyles, Group, Navbar, Text, Tooltip, UnstyledButton } from '@mantine/core';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { IconNotes, IconPlus, IconSquarePlus } from '@tabler/icons';
+import { IconNotes, IconPlus, IconSquarePlus, IconUserCircle } from '@tabler/icons';
 
 import en from '@/locales/en.json';
+import useWallet from '@/modules/near-api-react/hooks/useWallet';
 
 // eslint-disable-next-line max-lines-per-function
 const useStyles = createStyles((theme) => ({
@@ -47,6 +48,18 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     },
+  },
+
+  mainLinkNoHover: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    fontSize: theme.fontSizes.xs,
+    padding: `8px ${theme.spacing.xs}px`,
+    borderRadius: theme.radius.sm,
+    fontWeight: 500,
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+    cursor: 'unset',
   },
 
   mainLinkInner: {
@@ -108,6 +121,7 @@ const collections = [{ emoji: '📄', label: 'First note' }];
 
 const NotesContainer = () => {
   const { classes } = useStyles();
+  const wallet = useWallet();
 
   const mainLinks = links.map((link) => (
     <UnstyledButton key={link.label} className={classes.mainLink}>
@@ -126,7 +140,16 @@ const NotesContainer = () => {
 
   return (
     <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
-      <Navbar.Section className={classes.section}>User info</Navbar.Section>
+      <Navbar.Section className={classes.section}>
+        <div className={classes.mainLinks}>
+          <UnstyledButton className={classes.mainLinkNoHover}>
+            <div className={classes.mainLinkInner}>
+              <IconUserCircle size={20} stroke={1.5} />
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;{wallet && wallet.isSignedIn() && wallet.getAccountId()}</span>
+            </div>
+          </UnstyledButton>
+        </div>
+      </Navbar.Section>
 
       {/* <TextInput
         placeholder="Search"
