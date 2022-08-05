@@ -1,5 +1,6 @@
 import { Button, Container, createStyles, Group, Text } from '@mantine/core';
 import { GithubIcon } from '@mantine/ds';
+import Link from 'next/link';
 
 import en from '@/locales/en.json';
 
@@ -88,9 +89,11 @@ const HomeHero = () => {
         </Text>
 
         <Group className={classes.controls}>
-          <Button size="xl" className={classes.control} variant="gradient" gradient={{ from: 'blue', to: 'cyan' }}>
-            {en.home.button}
-          </Button>
+          <Link href="/notes" passHref>
+            <Button component="a" size="xl" className={classes.control} variant="gradient" gradient={{ from: 'blue', to: 'cyan' }}>
+              {en.home.button}
+            </Button>
+          </Link>
 
           <Button component="a" href="https://github.com/sandoche/NEARwrite" size="xl" variant="default" className={classes.control} leftIcon={<GithubIcon size={20} />}>
             {en.home.github}
