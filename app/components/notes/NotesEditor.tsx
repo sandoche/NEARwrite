@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import rehypeSanitize from 'rehype-sanitize';
 
 import en from '@/locales/en.json';
+import addNoteToIpfs from '@/services/ipfs';
 
 import '@uiw/react-markdown-editor/markdown-editor.css';
 import '@uiw/react-markdown-preview/markdown.css';
@@ -16,18 +17,16 @@ const NotesEditor = () => {
   
 What's up today?`);
 
+  const saveNote = async () => {
+    const cid = await addNoteToIpfs(note);
+    console.info(cid);
+  };
+
   return (
     <>
       <SimpleGrid cols={2}>
         <div data-color-mode="light">
-          <MDEditor
-            hideToolbar={false}
-            value={note}
-            onChange={setNote}
-            previewOptions={{
-              rehypePlugins: [[rehypeSanitize]],
-            }}
-          />
+          <MDEditor value={note} onChange={setNote} />
         </div>
         <div data-color-mode="light">
           <Paper p="md">
@@ -36,7 +35,7 @@ What's up today?`);
         </div>
       </SimpleGrid>
       <Text align="right">
-        <Button mt="lg" color="indigo" size="lg">
+        <Button mt="lg" color="indigo" size="lg" onClick={saveNote}>
           {en.notes.save}
         </Button>
       </Text>
