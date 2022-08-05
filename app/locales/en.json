@@ -12,5 +12,12 @@
     "description": "The privacy-focused decentralized note-taking on the NEAR Procotol",
     "button": "Connect with NEAR Wallet",
     "github": "Github"
+  },
+  "notes": {
+    "menu": {
+      "notes": "All notes",
+      "create": "Create note",
+      "recent": "Recent notes"
+    }
   }
 }

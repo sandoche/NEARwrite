@@ -1,6 +1,8 @@
-import { ActionIcon, Badge, Code, createStyles, Group, Navbar, Text, TextInput, Tooltip, UnstyledButton } from '@mantine/core';
+import { ActionIcon, Badge, createStyles, Group, Navbar, Text, Tooltip, UnstyledButton } from '@mantine/core';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { IconBulb, IconCheckbox, IconPlus, IconSearch, IconSelector, IconUser } from '@tabler/icons';
+import { IconNotes, IconPlus, IconSquarePlus, IconUser } from '@tabler/icons';
+
+import en from '@/locales/en.json';
 
 // eslint-disable-next-line max-lines-per-function
 const useStyles = createStyles((theme) => ({
@@ -95,22 +97,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const links = [
-  { icon: IconBulb, label: 'Activity', notifications: 3 },
-  { icon: IconCheckbox, label: 'Tasks', notifications: 4 },
-  { icon: IconUser, label: 'Contacts' },
+  { icon: IconSquarePlus, label: en.notes.menu.create },
+  {
+    icon: IconNotes,
+    label: en.notes.menu.notes,
+  },
 ];
 
-const collections = [
-  { emoji: '👍', label: 'Sales' },
-  { emoji: '🚚', label: 'Deliveries' },
-  { emoji: '💸', label: 'Discounts' },
-  { emoji: '💰', label: 'Profits' },
-  { emoji: '✨', label: 'Reports' },
-  { emoji: '🛒', label: 'Orders' },
-  { emoji: '📅', label: 'Events' },
-  { emoji: '🙈', label: 'Debts' },
-  { emoji: '💁‍♀️', label: 'Customers' },
-];
+const collections = [{ emoji: '📄', label: 'First note' }];
 
 const NotesContainer = () => {
   const { classes } = useStyles();
@@ -139,7 +133,7 @@ const NotesContainer = () => {
     <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section className={classes.section}>User info</Navbar.Section>
 
-      <TextInput
+      {/* <TextInput
         placeholder="Search"
         size="xs"
         icon={<IconSearch size={12} stroke={1.5} />}
@@ -147,7 +141,7 @@ const NotesContainer = () => {
         rightSection={<Code className={classes.searchCode}>Ctrl + K</Code>}
         styles={{ rightSection: { pointerEvents: 'none' } }}
         mb="sm"
-      />
+      /> */}
 
       <Navbar.Section className={classes.section}>
         <div className={classes.mainLinks}>{mainLinks}</div>
@@ -156,7 +150,7 @@ const NotesContainer = () => {
       <Navbar.Section className={classes.section}>
         <Group className={classes.collectionsHeader} position="apart">
           <Text size="xs" weight={500} color="dimmed">
-            Collections
+            {en.notes.menu.recent}
           </Text>
           <Tooltip label="Create collection" withArrow position="right">
             <ActionIcon variant="default" size={18}>
