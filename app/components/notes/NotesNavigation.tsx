@@ -139,7 +139,7 @@ const NotesNavigation = () => {
   ));
 
   return (
-    <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
+    <Navbar height="100%" width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section className={classes.section}>
         <div className={classes.mainLinks}>
           <UnstyledButton className={classes.mainLinkNoHover}>
