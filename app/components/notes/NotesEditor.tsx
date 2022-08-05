@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button, Paper, SimpleGrid, Text } from '@mantine/core';
 import dynamic from 'next/dynamic';
-import rehypeSanitize from 'rehype-sanitize';
 
 import en from '@/locales/en.json';
 import addNoteToIpfs from '@/services/ipfs';
