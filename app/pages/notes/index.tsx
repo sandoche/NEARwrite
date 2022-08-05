@@ -1,4 +1,5 @@
 import LoadingAnimation from '@/components/common/LoadingAnimation';
+import NotesContainer from '@/components/notes/NotesContainer';
 import signInOptions from '@/config/near';
 import useWallet from '@/modules/near-api-react/hooks/useWallet';
 import NearAuthenticationGuard from '@/modules/near-api-react/utilities/NearAuthenticationGuard';
@@ -16,7 +17,7 @@ const Notes = () => {
 
   return (
     <NearAuthenticationGuard loggedInCallback={redirectToLoginPage}>
-      <div>Coming soon...</div>
+      <NotesContainer />
     </NearAuthenticationGuard>
   );
 };
