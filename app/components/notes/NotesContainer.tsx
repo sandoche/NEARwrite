@@ -1,6 +1,6 @@
-import { ActionIcon, Badge, createStyles, Group, Navbar, Text, Tooltip, UnstyledButton } from '@mantine/core';
+import { ActionIcon, createStyles, Group, Navbar, Text, Tooltip, UnstyledButton } from '@mantine/core';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { IconNotes, IconPlus, IconSquarePlus, IconUser } from '@tabler/icons';
+import { IconNotes, IconPlus, IconSquarePlus } from '@tabler/icons';
 
 import en from '@/locales/en.json';
 
@@ -115,11 +115,6 @@ const NotesContainer = () => {
         <link.icon size={20} className={classes.mainLinkIcon} stroke={1.5} />
         <span>{link.label}</span>
       </div>
-      {link.notifications && (
-        <Badge size="sm" variant="filled" className={classes.mainLinkBadge}>
-          {link.notifications}
-        </Badge>
-      )}
     </UnstyledButton>
   ));
 
