@@ -7,7 +7,7 @@
   "scripts": {
     "test": "ava",
     "build": "near-sdk-js build src/index.ts build/contract.wasm",
-    "deploy": "near js dev-deploy build/contract.wasm --deposit 0.1"
+    "deploy": "near dev-deploy build/contract.wasm"
   },
   "author": "Sandoche Adittane",
   "dependencies": {
