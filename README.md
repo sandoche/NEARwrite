@@ -33,4 +33,5 @@ npm run dev
 cd contract
 npm run build
 npm run deploy
+near call $contract_id init --accountId $contract_id --deposit 0.1
 ```
